@@ -207,7 +207,9 @@ class Korbit(object):
                     "type": "limit",
                     "price": price,
                     "coin_amount": amount,
-                    "nonce": str(int(time.time()))}
+                    "nonce": str(int(time.time())),
+                    "post_only": True
+                   }
 
             contents = _send_post_request(url, headers=headers, data=data)
             if contents is not None:
@@ -232,7 +234,9 @@ class Korbit(object):
             data = {"currency_pair": currency,
                     "type": "market",
                     "coin_amount": coin_amount,
-                    "nonce": str(int(time.time()))}
+                    "nonce": str(int(time.time())),
+                    "post_only": True
+                   }
 
             contents = _send_post_request(url, headers=headers, data=data)
             if contents is not None:
